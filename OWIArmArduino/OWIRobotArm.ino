@@ -1,4 +1,4 @@
-\#include <Wire.h>
+#include <Wire.h>
 #include <Adafruit_MotorShield.h>
 
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 

@@ -34,18 +34,17 @@ namespace OWIArmArduino
                         if (value == 255)SerialPort.Write(BitConverter.GetBytes(1),0,1);
                         if (value == 0)SerialPort.Write(BitConverter.GetBytes(2),0,1);
                         break;
-                    case Usage.Button1:
-                        if (value==1)SerialPort.Write(BitConverter.GetBytes(5),0,1);
-                        
-                        break;
-                    case Usage.Button2:
+                    case Usage.Button1: //X
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(6),0,1);
                         break;
-                    case Usage.Button3:
+                    case Usage.Button2: //A
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(7),0,1);
                         break;
-                    case Usage.Button4:
+                    case Usage.Button3: //B
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(8),0,1);
+                        break;
+                    case Usage.Button4: //Y
+                        if (value==1)SerialPort.Write(BitConverter.GetBytes(5),0,1);
                         break;
                     default:
                         break;    
