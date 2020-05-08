@@ -22,7 +22,7 @@ namespace OWIArmArduino
                 var y = (Usage) dataValue.Usages.FirstOrDefault();
                 var value = (int)dataValue.GetPhysicalValue();
                 
-                Console.WriteLine($"{(Usage) dataValue.Usages.FirstOrDefault()}: {previousDataValue.GetPhysicalValue()} -> {dataValue.GetPhysicalValue()}");
+                //Console.WriteLine($"{(Usage) dataValue.Usages.FirstOrDefault()}: {previousDataValue.GetPhysicalValue()} -> {dataValue.GetPhysicalValue()}");
 
                 switch (y)
                 {
@@ -46,10 +46,16 @@ namespace OWIArmArduino
                     case Usage.Button4: //Y
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(5),0,1);
                         break;
+                    case Usage.Button5: //Y
+                        if (value==1)SerialPort.Write(BitConverter.GetBytes(9),0,1);
+                        break;
+                    case Usage.Button6: //Y
+                        if (value==1)SerialPort.Write(BitConverter.GetBytes(10),0,1);
+                        break;
                     default:
                         break;    
                 }
-            }
+            }  
         }
 
         static void Main(string[] args)
@@ -62,6 +68,14 @@ namespace OWIArmArduino
                 DataBits = 8,
                 Handshake = Handshake.None
             };
+            
+            SerialPort.DataReceived += delegate(object sender, SerialDataReceivedEventArgs eventArgs)
+            {
+                SerialPort sp = (SerialPort)sender;
+                string indata = sp.ReadLine();
+                Console.WriteLine("Received: " + indata);
+            };
+
             
             SerialPort.Open();
             
