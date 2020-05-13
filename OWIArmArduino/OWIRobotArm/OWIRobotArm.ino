@@ -2,11 +2,11 @@
 #include <Adafruit_MotorShield.h>
 
 Adafruit_MotorShield AFMS1 = Adafruit_MotorShield(0x61);
-Adafruit_DCMotor *myMotor5 = AFMS1.getMotor(4);
+Adafruit_DCMotor *myMotor5 = AFMS1.getMotor(1);
+Adafruit_DCMotor *myMotor2 = AFMS1.getMotor(3);
+Adafruit_DCMotor *myMotor1 = AFMS1.getMotor(3);
 
 Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); 
-Adafruit_DCMotor *myMotor1 = AFMS2.getMotor(1);
-Adafruit_DCMotor *myMotor2 = AFMS2.getMotor(2);
 Adafruit_DCMotor *myMotor3 = AFMS2.getMotor(3);
 Adafruit_DCMotor *myMotor4 = AFMS2.getMotor(4);
 
@@ -54,46 +54,47 @@ void loop() {
     // read the incoming byte:
     byte incomingByte = Serial.read();
     int command = incomingByte;
+    Serial.print(command);
     
     switch(command){
       case 1:
-        Serial.println("Motor 1 forward");
+        Serial.println(" Received - Motor 1 forward");
         MoveForward(*myMotor1);
         break;
       case 2:
-        Serial.println("Motor 1 backward");
+        Serial.println(" Received - Motor 1 backward");
         MoveBackwords(*myMotor1);
         break;
       case 3:
-        Serial.println("Motor 2 forward");
+        Serial.println(" Received - Motor 2 forward");
         MoveForward(*myMotor2);
         break;
       case 4:
-        Serial.println("Motor 2 backward");
+        Serial.println(" Received - Motor 2 backward");
         MoveBackwords(*myMotor2);
         break;
       case 5:
-        Serial.println("Motor 3 forward");
+        Serial.println(" Received - Motor 3 forward");
         MoveForward(*myMotor3);
         break;
       case 6:
-        Serial.println("Motor 3 backward");
+        Serial.println(" Received - Motor 3 backward");
         MoveBackwords(*myMotor3);
         break;
       case 7:
-        Serial.println("Motor 4 forward");
+        Serial.println(" Received - Motor 4 forward");
         MoveForward(*myMotor4);
         break;
       case 8:
-        Serial.println("Motor 4 backward");
+        Serial.println(" Received - Motor 4 backward");
         MoveBackwords(*myMotor4);
         break;
       case 9:
-        Serial.println("Motor 5 forward");
+        Serial.println(" Received - Motor 5 forward");
         MoveForward(*myMotor5);
         break;
       case 10:
-        Serial.println("Motor 5 backward");
+        Serial.println(" Received - Motor 5 backward");
         MoveBackwords(*myMotor5);
         break;
       default:

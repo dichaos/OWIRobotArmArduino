@@ -27,33 +27,33 @@ namespace OWIArmArduino
                 switch (y)
                 {
                     case Usage.GenericDesktopY:
-                        if (value == 255)SerialPort.Write(BitConverter.GetBytes(3),0,1);
-                        if (value == 0)SerialPort.Write(BitConverter.GetBytes(4),0,1);
+                        if (value == 255)SerialPort.Write(BitConverter.GetBytes(4),0,1);
+                        if (value == 0)SerialPort.Write(BitConverter.GetBytes(3),0,1);
                         break;
                     case Usage.GenericDesktopX:
-                        if (value == 255)SerialPort.Write(BitConverter.GetBytes(1),0,1);
-                        if (value == 0)SerialPort.Write(BitConverter.GetBytes(2),0,1);
+                        if (value==255)SerialPort.Write(BitConverter.GetBytes(7),0,1);
+                        if (value==0)SerialPort.Write(BitConverter.GetBytes(8),0,1);
                         break;
                     case Usage.Button1: //X
+                        if (value==1)SerialPort.Write(BitConverter.GetBytes(5),0,1);
+                        break;
+                    case Usage.Button4: //Y
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(6),0,1);
                         break;
                     case Usage.Button2: //A
-                        if (value==1)SerialPort.Write(BitConverter.GetBytes(7),0,1);
+                        if (value == 1)SerialPort.Write(BitConverter.GetBytes(1),0,1);
                         break;
                     case Usage.Button3: //B
-                        if (value==1)SerialPort.Write(BitConverter.GetBytes(8),0,1);
+                        if (value == 0)SerialPort.Write(BitConverter.GetBytes(2),0,1);
                         break;
-                    case Usage.Button4: //Y
-                        if (value==1)SerialPort.Write(BitConverter.GetBytes(5),0,1);
-                        break;
-                    case Usage.Button5: //Y
+                    case Usage.Button5: //L
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(9),0,1);
                         break;
-                    case Usage.Button6: //Y
+                    case Usage.Button6: //R
                         if (value==1)SerialPort.Write(BitConverter.GetBytes(10),0,1);
                         break;
                     default:
-                        break;    
+                        break;   
                 }
             }  
         }
@@ -73,7 +73,7 @@ namespace OWIArmArduino
             {
                 SerialPort sp = (SerialPort)sender;
                 string indata = sp.ReadLine();
-                Console.WriteLine("Received: " + indata);
+                Console.WriteLine(indata);
             };
 
             
