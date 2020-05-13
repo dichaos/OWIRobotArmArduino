@@ -4,7 +4,7 @@
 Adafruit_MotorShield AFMS1 = Adafruit_MotorShield(0x61);
 Adafruit_DCMotor *myMotor5 = AFMS1.getMotor(1);
 Adafruit_DCMotor *myMotor2 = AFMS1.getMotor(3);
-Adafruit_DCMotor *myMotor1 = AFMS1.getMotor(3);
+Adafruit_DCMotor *myMotor1 = AFMS1.getMotor(4);
 
 Adafruit_MotorShield AFMS2 = Adafruit_MotorShield(0x62); 
 Adafruit_DCMotor *myMotor3 = AFMS2.getMotor(3);
